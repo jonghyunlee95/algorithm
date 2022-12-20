@@ -1,7 +1,5 @@
 function solution(arr) {
-    const min = Math.min(...arr);
-    const idx = arr.indexOf(min); 
-    arr.splice(idx,1);
+    arr.splice(arr.indexOf(Math.min(...arr)),1);
     
     if(arr.length === 0) arr.push(-1);
     
