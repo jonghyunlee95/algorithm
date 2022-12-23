@@ -6,7 +6,8 @@ function solution(price, money, count) {
     }
     
     answer -= money;
-    if (answer < 0) return 0;
+    
+    if (answer < 0) answer = 0;
 
     return answer;
 }
