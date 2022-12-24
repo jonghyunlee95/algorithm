@@ -1,10 +1,9 @@
 function solution(d, budget) {
-    let arr = d.sort((a, b) => a - b);
     let answer = 0;
-    let sum = 0;
+    d.sort((a, b) => a - b);
     
-    for (let i = 0; i < arr.length; i++) {
-        budget -= arr[i];
+    for (let i = 0; i < d.length; i++) {
+        budget -= d[i];
         
         if (budget >= 0) answer++;
         else break;
