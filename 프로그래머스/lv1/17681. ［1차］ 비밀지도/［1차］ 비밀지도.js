@@ -14,7 +14,7 @@ function solution(n, arr1, arr2) {
         let str = String(answer[i]);
         if (str.length !== n) word += ' '.repeat(n - str.length);
         
-        for (let j = 0; j < str.length; j++) {
+        for (let j = 0; j < n; j++) {
             if (str[j] > 0) word += '#';
             if (str[j] == 0) word += ' ';
             
