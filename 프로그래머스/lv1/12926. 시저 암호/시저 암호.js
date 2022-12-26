@@ -7,7 +7,7 @@ function solution(s, n) {
         
         if (ascii >= 65 && ascii <= 90) {
             ascii += n;
-            if(ascii > 90) ascii -= 26;
+            if (ascii > 90) ascii -= 26;
         }
         if (ascii >= 97 && ascii <=122) {
             ascii += n;
