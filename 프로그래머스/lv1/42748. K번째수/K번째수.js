@@ -8,11 +8,11 @@ function solution(array, commands) {
         let idx = commands[i][2] - 1;
         
         for (let j = first; j <= last; j++) {
-            arr.push(array[j])
+            arr.push(array[j]);
         }
         
         arr.sort((a, b) => a - b);
-        answer.push(arr[idx])
+        answer.push(arr[idx]);
     }
     
     return answer;
