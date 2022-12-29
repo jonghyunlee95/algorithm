@@ -1,5 +1,5 @@
 function solution(nums) {
-    let answer = [];
+    const answer = [];
     
     for (let i = 0; i < nums.length; i++) {
         if (!answer.includes(nums[i])) answer.push(nums[i]);
