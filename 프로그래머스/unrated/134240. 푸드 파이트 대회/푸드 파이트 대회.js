@@ -6,9 +6,6 @@ function solution(food) {
     }
     
     const reverse = answer.split('').reverse().join('');
-    answer += '0';
-    answer += reverse;
-    
-    
-    return answer;
+     
+    return answer + '0' + reverse;
 }
