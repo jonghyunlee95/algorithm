@@ -1,25 +1,20 @@
-function isPrimeNumber(number) {
-  if (number <= 1) {
-    return false;
-  }
-  for (let i = 2; i <= Math.sqrt(number); i++) {
-    if (number % i === 0) {
-      return false;
+function primeNumber(num) {
+    if (num <= 1) return false;
+    
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
     }
-  }
-  return true;
+    
+    return true;
 }
 
 function solution(n, k) {
-  let answer = 0;
-  let num = n.toString(k);
-  let numArr = num.split("0");
-
-  for (let i = 0; i < numArr.length; i++) {
-    if (isPrimeNumber(Number(numArr[i]))) {
-      answer++; 
+    let answer = 0;
+    const arr = n.toString(k).split('0');
+    console.log(arr)
+    for (let i = 0; i < arr.length; i++) {
+        if (primeNumber(Number(arr[i]))) answer++;
     }
-  }
-
-  return answer;
+    
+    return answer;
 }
