@@ -15,7 +15,7 @@ for (let i = 0; i < input.length; i++) {
 const cnt = [];
 
 for (let i = 0; i < arr.length; i++) {
-  if (i === 6 && arr[i] >= 2) {
+  if (i === 6) {
     cnt.push(Math.ceil(arr[i] / 2));
   } else {
     cnt.push(arr[i]);
