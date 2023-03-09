@@ -1,17 +1,20 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
-let iterations = +input[0];
-let standard = input[1];
-let result = [];
+const [T, ...input] = require('fs').readFileSync(filePath).toString().trim().split('\n');
+let str = input.shift();
+let answer = [];
 
-for (let i = 1; i <= iterations; i++) {
-  for (let j = 0; j < standard.length; j++) {
-    if (standard[j] === input[i][j]) {
-      result[j] = standard[j];
+for (let i = 0; i < str.length; i++) {
+  for (let j = 0; j < input.length; j++) {
+    const temp = str[i];
+    if (temp !== input[j][i]) {
+      answer.push('?');
+      break;
     } else {
-      result[j] = '?';
+      if (j === input.length - 1) answer.push(temp);
     }
   }
-  standard = result;
 }
-console.log(standard.join(''));
+
+if (answer.length === 0) answer.push(str);
+
+console.log(answer.join(''));
