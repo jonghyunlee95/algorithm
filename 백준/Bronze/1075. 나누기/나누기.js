@@ -1,22 +1,22 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = require('fs')
-  .readFileSync(filePath)
-  .toString()
-  .trim()
-  .split('\n')
-  .map((x) => +x);
-const end = Math.floor(input[0] / input[1]) + 1;
-const answer = [];
+const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
+const N = input[0];
+const F = input[1];
+let i = 0;
 
-for (let i = 1; i <= end; i++) {
-  const num1 = Math.floor(input[0] / 100);
-  const num2 = Math.floor((input[1] * i) / 100);
+while (i <= 99) {
+  let num = '';
 
-  if (num1 === num2) {
-    answer.push((input[1] * i) % 100);
+  if (i < 10) {
+    num = '0' + i;
+  } else {
+    num = num + i;
+  }
+
+  if ((N.slice(0, -2) + num) % F === 0) {
+    console.log(num);
     break;
+  } else {
+    i++;
   }
 }
-
-if (answer.join('').length === 1) answer.unshift(0);
-console.log(answer.join(''));
