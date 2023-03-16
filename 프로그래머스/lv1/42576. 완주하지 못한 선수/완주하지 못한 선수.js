@@ -1,14 +1,15 @@
 function solution(participant, completion) {
-    let answer = '';
-    participant.sort();
-    completion.sort();
-    
+    const map = new Map();
+
     for (let i = 0; i < participant.length; i++) {
-        if (participant[i] !== completion[i]) {
-            answer = participant[i];
-            break;
-        } 
+        const join = participant[i];
+        const done = completion[i];
+
+        map.set(join, (map.get(join) || 0) + 1);
+        map.set(done, (map.get(done) || 0) - 1);
     }
     
-    return answer;
+    for (let [key, value] of map) {
+        if (value > 0) return key;
+    }
 }
