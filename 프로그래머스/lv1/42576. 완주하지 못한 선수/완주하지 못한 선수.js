@@ -9,7 +9,7 @@ function solution(participant, completion) {
         map.set(done, (map.get(done) || 0) - 1);
     }
     
-    for (let [key, value] of map) {
+    for (const [key, value] of map) {
         if (value > 0) return key;
     }
 }
