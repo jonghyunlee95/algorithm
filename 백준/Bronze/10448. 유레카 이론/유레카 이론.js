@@ -9,9 +9,9 @@ const T = input.shift();
 const arr = [];
 const answer = [];
 
-for (let i = 1; i <= 1000; i++) {
-  for (let j = 1; j <= 1000; j++) {
-    for (let k = 1; k <= 1000; k++) {
+for (let i = 1; i <= 45; i++) {
+  for (let j = 1; j <= 45; j++) {
+    for (let k = 1; k <= 45; k++) {
       const num1 = (i * (i + 1)) / 2;
       const num2 = (j * (j + 1)) / 2;
       const num3 = (k * (k + 1)) / 2;
