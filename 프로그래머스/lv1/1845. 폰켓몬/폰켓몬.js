@@ -1,12 +1,13 @@
 function solution(nums) {
-    const answer = [];
+    const obj = {};
     
     for (let i = 0; i < nums.length; i++) {
-        if (!answer.includes(nums[i])) answer.push(nums[i]);
-        
+        obj[nums[i]] = (obj[nums[i]] || 0) + 1  
     }
-    if (answer.length > nums.length / 2) return nums.length / 2;
     
+    const arr = Object.entries(obj);
     
-    return answer.length;
+    if (nums.length / 2 > arr.length) return arr.length;
+    else if (nums.length / 2 < arr.length) return nums.length / 2;
+    else return arr.length;
 }
