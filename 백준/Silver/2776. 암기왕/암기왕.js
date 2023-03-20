@@ -11,12 +11,8 @@ function confirm(arr) {
   const book1 = arr.shift().split(' ');
   const T2 = +arr.shift();
   const book2 = arr.shift().split(' ');
-  const set = new Set();
+  const set = new Set(book1);
   const answer = [];
-
-  for (let i = 0; i < T1; i++) {
-    set.add(book1[i]);
-  }
 
   for (let i = 0; i < T2; i++) {
     if (set.has(book2[i])) answer.push(1);
