@@ -13,18 +13,16 @@ for (let i = 0; i < T; i++) {
 
 function answer(arr) {
   const T = +arr.shift();
-  const map1 = new Map();
-  const map2 = new Map();
+  const map = new Map();
   const answer = [];
   arr = arr.map((x) => x.split(' '));
 
   for (let i = 0; i < T; i++) {
-    map1.set(arr[0][i], i);
-    map2.set(arr[1][i], i);
+    map.set(arr[1][i], i);
   }
 
-  for (let i = 0; i < map2.size; i++) {
-    answer.push(arr[2][map2.get(arr[0][i])]);
+  for (let i = 0; i < map.size; i++) {
+    answer.push(arr[2][map.get(arr[0][i])]);
   }
 
   console.log(answer.join(' '));
