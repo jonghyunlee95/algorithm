@@ -14,10 +14,10 @@ for (let i = 0; i < submitNum; i++) {
   set.add(input[i]);
 }
 
-if (game === 'Y') {
-  console.log(Math.floor(set.size / 1));
-} else if (game === 'F') {
+if (game === 'F') {
   console.log(Math.floor(set.size / 2));
-} else {
+} else if (game === 'O') {
   console.log(Math.floor(set.size / 3));
+} else {
+  console.log(set.size);
 }
