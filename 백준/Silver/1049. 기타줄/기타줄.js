@@ -5,7 +5,7 @@ const input = require('fs')
   .trim()
   .split('\n')
   .map((x) => x.split(' ').map(Number));
-let [need, brand] = input.shift();
+const [need, brand] = input.shift();
 const set = [];
 const single = [];
 const cost = [];
