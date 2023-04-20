@@ -3,29 +3,33 @@ const input = require('fs').readFileSync(filePath).toString().trim().split('\n')
 const T = +input.shift();
 const nums = input[0].split(' ').map(Number);
 
-function same(T, arr) {
-  const answer = [];
+function same(num) {
+  const result = [];
 
-  for (let i = 0; i < T; i++) {
-    for (let j = 1; j <= arr[i]; j++) {
-      if (arr[i] % j === 0) {
-        answer.push(j);
-      }
-    }
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) result.push(i);
   }
 
-  const map = new Map();
-  const num = [];
-
-  for (let k = 0; k < answer.length; k++) {
-    if (!map.has(answer[k])) map.set(answer[k], 1);
-    else map.set(answer[k], map.get(answer[k]) + 1);
-  }
-
-  for (const item of map) {
-    if (item[1] === T) num.push(item[0]);
-  }
-  console.log(num.sort((a, b) => a - b).join('\n'));
+  return result;
 }
 
-same(T, nums);
+function gcd(a, b) {
+  const remainder = a % b;
+  if (remainder === 0) return b;
+  return gcd(b, remainder);
+}
+
+if (nums.length === 2) {
+  console.log(
+    same(gcd(nums[0], nums[1]))
+      .sort((a, b) => a - b)
+      .join('\n')
+  );
+} else if (nums.length === 3) {
+  const number = gcd(nums[0], nums[1]);
+  console.log(
+    same(gcd(number, nums[2]))
+      .sort((a, b) => a - b)
+      .join('\n')
+  );
+}
