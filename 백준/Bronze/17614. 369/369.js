@@ -6,7 +6,6 @@ for (let i = 1; i <= input; i++) {
   nums.push(String(i).split(''));
 }
 
-nums = nums.filter((x) => x.includes('3') || x.includes('6') || x.includes('9'));
 let cnt = 0;
 
 for (let i = 0; i < nums.length; i++) {
