@@ -1,20 +1,17 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = require('fs').readFileSync(filePath).toString().trim().split('\n');
-
+const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
 const T = +input.shift();
-const obj = {};
+const arr = input[0].split(' ').map(Number);
+const uniqueArr = [...new Set([...arr].sort((a, b) => a - b))];
+const map = new Map();
 const answer = [];
 
-input = input.join().split(' ');
-const newInput = new Set(input);
-const uniqueArr = [...newInput].sort((a, b) => a - b);
-
 for (let i = 0; i < uniqueArr.length; i++) {
-  obj[uniqueArr[i]] = i;
+  map.set(uniqueArr[i], i);
 }
 
-for (let i = 0; i < T; i++) {
-  answer.push(obj[input[i]]);
+for (let i = 0; i < arr.length; i++) {
+  answer.push(map.get(arr[i]));
 }
 
 console.log(answer.join(' '));
