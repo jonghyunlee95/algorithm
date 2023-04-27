@@ -5,15 +5,13 @@ const arr = input.map((x) => x.split(' ').map(Number)).sort((a, b) => b[0] - a[0
 let cnt = 0;
 let answer = 0;
 
-for (let i = 0; i < arr.length; i++) {
+for (let i = 0; i < arr.length - 1; i++) {
   if (arr[i][0] >= point[0]) {
     cnt++;
   } else {
     answer += point[0] - arr[i][0];
     cnt++;
   }
-
-  if (cnt === point[1] - 1) break;
 }
 
 console.log(answer);
