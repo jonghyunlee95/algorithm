@@ -1,18 +1,11 @@
 function solution(sizes) {
-    let answer = 0;
-    let width = [];
-    let height = [];
+    const w = [];
+    const h = [];
     
     for (let i = 0; i < sizes.length; i++) {
-        if (sizes[i][0] < sizes[i][1]) {
-            sizes[i].reverse();
-        }
-        
-        width.push(sizes[i][0]);
-        height.push(sizes[i][1]);
+        w.push(Math.max(sizes[i][0], sizes[i][1]));
+        h.push(Math.min(sizes[i][0], sizes[i][1]));
     }
-    
-    answer = Math.max(...width) * Math.max(...height);
-    
-    return answer;
+
+    return Math.max(...w) * Math.max(...h);
 }
