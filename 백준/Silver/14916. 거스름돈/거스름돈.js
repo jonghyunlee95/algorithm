@@ -1,15 +1,18 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = +require('fs').readFileSync(filePath).toString().trim();
-const answer = [];
+let input = +require('fs').readFileSync(filePath).toString().trim();
+let cnt = 0;
+let bool = false;
 
-for (let i = 0; i <= parseInt(input / 5); i++) {
-  for (let j = 0; j <= parseInt(input / 2); j++) {
-    if (i * 5 + j * 2 === input) {
-      answer.push(i + j);
-      break;
-    }
+while (input >= 0) {
+  if (input === 0 || input % 5 === 0) {
+    cnt += input / 5;
+    bool = true;
+    break;
+  } else {
+    input -= 2;
+    cnt++;
   }
 }
 
-if (answer.length === 0) console.log(-1);
-else console.log(Math.min(...answer));
+if (bool) console.log(cnt);
+else console.log(-1);
