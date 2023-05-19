@@ -13,8 +13,8 @@ if (R > B) {
   arr = str.split('B');
 }
 
-arr.forEach((str) => {
-  if (str) answer++;
-});
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] !== '') answer++;
+}
 
 console.log(answer);
