@@ -7,7 +7,8 @@ function solution(survey, choices) {
         const el = survey[i].split('');
         
         if (choices[i] < 4) {
-            if (choices[i] === 3) num[arr.indexOf(el[0])] += 1;                             if (choices[i] === 2) num[arr.indexOf(el[0])] += 2;
+            if (choices[i] === 3) num[arr.indexOf(el[0])] += 1;                             
+            if (choices[i] === 2) num[arr.indexOf(el[0])] += 2;
             if (choices[i] === 1) num[arr.indexOf(el[0])] += 3;
         } else if (choices[i] > 4) {
             if (choices[i] === 5) num[arr.indexOf(el[1])] += 1;
