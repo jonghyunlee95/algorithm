@@ -7,7 +7,7 @@ function solution(s){
         // 배열의 마지막 값과 현재 s[i]의 값을 비교하고 같지 않다면 
         // stack에 s[i]값을 push해줍니다.
         // 같다면 stack의 마지막값을 pop해줍니다.
-		if (stack[stack.length - 1] !== s[i]) stack.push(s[i]);
+        if (stack[stack.length - 1] !== s[i]) stack.push(s[i]);
         else stack.pop();
     }
     
