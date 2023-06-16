@@ -6,6 +6,7 @@ function solution(s){
         else stack.pop();
     }
     
-    if (!stack.length) return 1;
-    else return 0;
+    // if (!stack.length) return 1;
+    // else return 0;
+    return !stack.length ? 1 : 0 
 }
