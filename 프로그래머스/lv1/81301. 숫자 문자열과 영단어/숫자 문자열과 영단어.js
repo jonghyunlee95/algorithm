@@ -4,8 +4,8 @@ function solution(s) {
    
     
     for (let i = 0; i < str_num.length; i++) {
-        while (s.includes(str_num[i])) {
-            s = s.replace(str_num[i], num[i]);
+        if (s.includes(str_num[i])) {
+            s = s.replaceAll(str_num[i], num[i]);
         }
     }
     
