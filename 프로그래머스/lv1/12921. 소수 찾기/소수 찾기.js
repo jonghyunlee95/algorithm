@@ -4,12 +4,9 @@ function solution(n) {
     const end = Math.sqrt(n) 
     
     for (let i = 2; i <= end; ++i) {
-       
-        if(arr[i] === false){
-            continue; 
-        }
+       if(arr[i] === false) continue;
         
-        for (let k = i * i; k <= n; k += i) {
+        for (let k = Math.pow(i, 2); k <= n; k += i) {
             arr[k] = false;
         }
     }
