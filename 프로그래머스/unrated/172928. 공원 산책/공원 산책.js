@@ -1,15 +1,12 @@
 function solution(park, routes) {
-  // 직사각형 공원이 가로 세로 길이
+  // 공원이 가로 세로 길이
   const maxRow = park.length - 1;
   const maxCol = park[0].length - 1;
 
   // 시작 지점의 좌표를 구한다.
-  // findIndex(), includes() 메서드를 이용해 몇 번째 행에 있는지를 구한다.
-  // 구한 행에서 indexOf() 메서드를 이용해 몇 번째 열에 있는지 구한다.
   let row = park.findIndex((s) => s.includes("S"));
   let col = park[row].indexOf("S");
 
-  // routes를 forEach() 메서드를 이용해 요소를 하나씩 확인한다.
   routes.forEach((position) => {
     // 요소를 빈칸 기준으로 나눠준다. (구조분해할당을 이용)
     // d = "E" / n = "2"
@@ -22,7 +19,6 @@ function solution(park, routes) {
 
     // 구한 이동거리 수 만큼 for문을 돌려준다.
     for (let i = 0; i < Number(n); i++) {
-
       // 동서 쪽 일 경우 행을 더하거나 빼주고
       // 남북 쪽 일 경우 열을 더하거나 빼준다.
       if (d === "E") tempCol++;
