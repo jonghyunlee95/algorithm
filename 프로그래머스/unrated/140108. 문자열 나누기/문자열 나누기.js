@@ -1,15 +1,17 @@
 function solution(s) {
-    let x = 0;
-    let x_count = 0;
-    let result = [];
+    let count = [0, 0];
+    let str = s[0];
+    let answer = 0;
     
-    for(i = 0; i < s.length; i++){
-        if(s[i] === s[x]) x_count++;
-        else x_count--;  
-        if(x_count === 0) {
-            result.push(s.substring(x, i + 1))
-            x = i + 1;
-        }
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === str) count[0]++;
+        else count[1]++;
+        
+        if (count[0] === count[1]) {
+            str = s[i + 1];
+            answer++;
+            count = [0, 0];
+        } 
     }
-    return result.join('').length === s.length ? result.length : result.length + 1;
+    return count[0] !== count[1] ? answer + 1 : answer
 }
