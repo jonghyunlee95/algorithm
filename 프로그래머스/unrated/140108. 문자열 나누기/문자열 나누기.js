@@ -1,23 +1,15 @@
 function solution(s) {
-    let answer = 0;
-    let arr = [];
+    let x = 0;
+    let x_count = 0;
+    let result = [];
     
-    
-    for (let i = 0; i < s.length; i++) {
-        arr.push(s[i]);
-        
-        const same = arr.filter((x) => x === arr[0]);
-        const notSame = arr.filter((x) => x !== arr[0]);
-        
-        if(same.length === notSame.length){
-            answer ++;
-            arr = [];
+    for(i = 0; i < s.length; i++){
+        if(s[i] === s[x]) x_count++;
+        else x_count--;  
+        if(x_count === 0) {
+            result.push(s.substring(x, i + 1))
+            x = i + 1;
         }
     }
-    
-    if (arr.length !== 0) {
-        answer ++;
-    }
-    
-    return answer;
+    return result.join('').length === s.length ? result.length : result.length + 1;
 }
