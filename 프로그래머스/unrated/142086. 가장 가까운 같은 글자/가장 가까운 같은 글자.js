@@ -6,10 +6,7 @@ function solution(s) {
         if (!arr.includes(s[i])) {
             arr.push(s[i]);
             answer.push(-1); 
-            continue;
-        }
-        
-        if (arr.includes(s[i])) {
+        } else {
             let idx = arr.lastIndexOf(s[i]);
             arr.push(s[i]);
             answer.push(i - idx);
