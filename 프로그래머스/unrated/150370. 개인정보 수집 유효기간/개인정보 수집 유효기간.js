@@ -1,8 +1,8 @@
 function solution(today, terms, privacies) {
     const answer = [];
     const map = new Map();
-    const day = today.split('.').map(Number);
-    const daySum = (day[0] * 12 * 28) + (day[1] * 28) + day[2];
+    const [y, m, d] = today.split('.').map(Number);
+    const daySum = (y * 12 * 28) + (m * 28) + d;
     
     for (let i = 0; i < terms.length; i++) {
         const arr = terms[i].split(' ');
