@@ -6,5 +6,5 @@ function solution(price, money, count) {
     }
     
     if (totalPrice < money) return 0;
-    else return -(money - totalPrice);
+    else return totalPrice - money;
 }
