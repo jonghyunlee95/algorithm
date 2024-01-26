@@ -1,16 +1,16 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let [T, ...input] = require('fs').readFileSync(filePath).toString().trim().split('\n');
+const [N, ...input] = require('fs')
+  .readFileSync(filePath)
+  .toString()
+  .trim()
+  .split('\n');
 
-for (let i = 0; i < T; i++) {
-  input[i] = input[i].split(' ').map((x) => +x);
-}
+const sortedArr = input
+  .map((item) => item.split(' ').map(Number))
+  .sort((a, b) => {
+    if (a[0] !== b[0]) return a[0] - b[0];
+    else return a[1] - b[1];
+  })
+  .map((item) => item.join(' '));
 
-console.log(
-  input
-    .sort((a, b) => {
-      if (a[0] !== b[0]) return a[0] - b[0];
-      return a[1] - b[1];
-    })
-    .map((x) => x.join(' '))
-    .join('\n')
-);
+console.log(sortedArr.join('\n'));
