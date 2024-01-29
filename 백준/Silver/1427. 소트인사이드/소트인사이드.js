@@ -4,7 +4,8 @@ const input = require('fs')
   .toString()
   .trim()
   .split('')
-  .map((x) => +x)
+  .map(Number)
   .sort((a, b) => b - a)
   .join('');
-console.log(input);
+
+console.log(input)
