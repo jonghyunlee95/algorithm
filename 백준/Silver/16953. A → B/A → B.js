@@ -1,22 +1,25 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = require('fs').readFileSync(filePath).toString().trim().split(' ').map(Number);
-const min = input[0];
-let max = input[1];
-let cnt = 0;
+let [A, B] = require('fs')
+  .readFileSync(filePath)
+  .toString()
+  .trim()
+  .split(' ')
+  .map(Number);
+let flag = false;
+let cnt = 1;
 
-while (max >= min) {
-  const arr = String(max).split('');
-
-  if (arr[arr.length - 1] === '1') {
-    arr.pop();
-    max = Number(arr.join(''));
-    cnt++;
-  } else {
-    max /= 2;
-    cnt++;
+while (B >= A) {
+  if (A === B) {
+    flag = true;
+    break;
   }
-  if (max === min) break;
+
+  if (B % 2 === 0) B = Math.floor(B / 2);
+  else if (B % 10 === 1) B = Math.floor(B / 10);
+  else break;
+
+  cnt++;
 }
 
-if (max !== min) console.log(-1);
-else console.log(cnt + 1);
+if (flag) console.log(cnt);
+else console.log(-1);
