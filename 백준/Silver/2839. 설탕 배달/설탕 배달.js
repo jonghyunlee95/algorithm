@@ -1,16 +1,18 @@
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let input = require('fs').readFileSync(filePath);
+let input = +require('fs').readFileSync(filePath).toString().trim();
 let cnt = 0;
+let flag = false;
 
-while (true) {
-    if (input % 5 === 0) {
-        console.log(input / 5 + cnt);
-        break;
-    }
-    if (input < 0) {
-        console.log(-1);
-        break;
-    }
-    cnt++;
-    input -= 3;
+while (input >= 0) {
+  if (input === 0 || input % 5 === 0) {
+    cnt += Math.floor(input / 5);
+    console.log(cnt);
+    flag = true;
+    break;
+  }
+
+  input -= 3;
+  cnt++;
 }
+
+if (!flag) console.log(-1);
