@@ -1,15 +1,14 @@
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
-const T = +input.shift();
-const distance = input[0].split(' ').map((x) => BigInt(x));
-const pay = input[1].split(' ').map((x) => BigInt(x));
-let answer = 0n;
-let cheaper = pay[0];
+const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
+const n = +input[0];
+const distance = input[1].split(" ").map(v => BigInt(v));
+const price = input[2].split(" ").map(v => BigInt(v));
 
-for (let i = 0; i < distance.length; i++) {
-  answer += cheaper * distance[i];
+let curPrice = price[0];
+let cost = 0n;
 
-  if (cheaper > distance[i]) cheaper = distance[i];
+for (let i=0; i<n-1; i++) {
+    cost += curPrice * distance[i];
+    if (curPrice > price[i+1]) curPrice = price[i+1];
 }
 
-console.log(String(answer));
+console.log(String(cost));
